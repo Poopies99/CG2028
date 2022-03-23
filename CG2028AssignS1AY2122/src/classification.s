@@ -9,7 +9,7 @@
 @ (c) CG2028 Teaching Team, ECE NUS, 2021
 
 @ student 1: Name: Chew Yi Jie , Matriculation No.: A0217596R
-@ student 2: Name: , Matriculation No.:
+@ student 2: Name: Christopher Nge, Matriculation No.: A0218109J
 
 @Register map
 @R0 - points pointer, returns class
