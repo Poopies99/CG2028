@@ -16,7 +16,10 @@
 @R1 - centroids pointer
 @R2 - class pointer (unused)
 @R3 - datapoint counter
-@R4-7 - general purpose
+@R4 - point1 x/y
+@R5 - centroid x/y
+@R6 - euclidean distance from centroid 1
+@R7 - euclidean distance from centroid 2
 @R8 - class 0 counter
 @R9 - class 1 counter
 
@@ -34,28 +37,28 @@ classification:
 			LDR R5, [R1] 				@0x05915000
 			ADD R1, #4 					@0x02811004
 			SUB R4, R5 					@0x00444005
-			MUL R4, R4 					@0x00004414
-			LDR R6, [R0] 				@0x05906000
+			MUL R6, R4, R4 				@0x00006414
+			LDR R4, [R0] 				@0x05904000
 			SUB R0, #4 					@0x02400004
 			LDR R5, [R1]				@0x05915000
 			ADD R1, #4 					@0x02811004
-			SUB R6, R5 					@0x00466005
-			MLA R6, R6, R6, R4 			@0x00246616
+			SUB R4, R5 					@0x00444005
+			MLA R6, R4, R4, R6 			@0x00266414
 
 			LDR R4, [R0] 				@0x05904000
 			ADD R0, #4 					@0x02800004
 			LDR R5, [R1] 				@0x05915000
 			ADD R1, #4 					@0x02811004
 			SUB R4, R5 					@0x00444005
-			MUL R4, R4 					@0x00004414
-			LDR R5, [R0] 				@0x05905000
+			MUL R7, R4, R4 				@0x00007414
+			LDR R4, [R0] 				@0x05904000
 			ADD R0, #4 					@0x02800004
-			LDR R7, [R1] 				@0x05917000
-			SUB R1, #12 				@reset centroid 0x0241100C
-			SUB R5, R7 					@0x00455007
-			MLA R5, R5, R5, R4 			@0x00245515
+			LDR R5, [R1] 				@0x05915000
+			SUB R1, #12 				@0x0241100C
+			SUB R4, R5 					@0x00444005
+			MLA R7, R4, R4, R7 			@0x00277414
 
-			CMP R6, R5 					@0x01560005
+			CMP R6, R7 					@0x01560007
 			BMI CLASS_0 				@0x48800008
 			ADD R9, #1 					@0x02899001
 			B SKIPCLASS_0 				@0xE8800004
