@@ -70,9 +70,9 @@
   58 00d8 00000000 		.word	0
   59 00dc 00000000 		.word	0
   60 00e0 00000000 		.word	0
-  61 00e4 0000F03F 		.word	1072693248
+  61 00e4 00001040 		.word	1074790400
   62 00e8 00000000 		.word	0
-  63 00ec 0000F83F 		.word	1073217536
+  63 00ec 0000F03F 		.word	1072693248
   64              		.align	3
   65              	.LC1:
   66 00f0 00000000 		.word	0
@@ -99,7 +99,7 @@
    6:../src/main.c **** 
    7:../src/main.c **** 
    8:../src/main.c **** int classification_cCode(int* arg1, int* arg2, int* arg3);
-   9:../src/main.c **** extern int classification(int* arg1, int* arg2, int* arg3);// reference C implementation
+   9:../src/main.c **** extern int classification(int* arg1, int* arg2, int* arg3, int arg4);// reference C implementation
   10:../src/main.c **** int main(void)
   11:../src/main.c **** {
   83              		.loc 1 11 0
@@ -121,16 +121,8 @@
   99              		.cfi_def_cfa_register 7
   12:../src/main.c **** 	int i,j;
   13:../src/main.c **** 
-  14:../src/main.c **** 	/*double points[DATAPOINT][2] = { {0.0, 0.0},
-  15:../src/main.c **** 							{0.0, 1.0},
-  16:../src/main.c **** 							{1.0, 1.0},
-  17:../src/main.c **** 							{1.0, 0.0},
-  18:../src/main.c **** 							{3.0, 0.0},
-  19:../src/main.c **** 							{3.0, 1.0},
-  20:../src/main.c **** 							{4.0, 0.0},
-  21:../src/main.c **** 							{4.0, 1.0} };*/
-  22:../src/main.c **** 	double points[DATAPOINT][2] = { {0.0, 0.0},
- 100              		.loc 1 22 0
+  14:../src/main.c **** 	double points[DATAPOINT][2] = { {0.0, 0.0},
+ 100              		.loc 1 14 0
  101 0006 40F20003 		movw	r3, #:lower16:.LC0
  102 000a C0F20003 		movt	r3, #:upper16:.LC0
  103 000e 07F19001 		add	r1, r7, #144
@@ -140,16 +132,16 @@
  107 001a 1146     		mov	r1, r2
  108 001c 1A46     		mov	r2, r3
  109 001e FFF7FEFF 		bl	memcpy
-  23:../src/main.c **** 								{0.0, 1.0},
-  24:../src/main.c **** 								{1.0, 1.0},
-  25:../src/main.c **** 								{1.0, 0.0},
-  26:../src/main.c **** 								{3.0, 0.0},
-  27:../src/main.c **** 								{3.0, 1.0},
-  28:../src/main.c **** 								{4.0, 0.0},
-  29:../src/main.c **** 								{1.0, 1.5} };
-  30:../src/main.c **** 
-  31:../src/main.c **** 	double centroids[CENTROID][2] ={ {0.0, 0.5},
- 110              		.loc 1 31 0
+  15:../src/main.c **** 							{0.0, 1.0},
+  16:../src/main.c **** 							{1.0, 1.0},
+  17:../src/main.c **** 							{1.0, 0.0},
+  18:../src/main.c **** 							{3.0, 0.0},
+  19:../src/main.c **** 							{3.0, 1.0},
+  20:../src/main.c **** 							{4.0, 0.0},
+  21:../src/main.c **** 							{4.0, 1.0} };
+  22:../src/main.c **** 
+  23:../src/main.c **** 	double centroids[CENTROID][2] ={ {0.0, 0.5},
+ 110              		.loc 1 23 0
  111 0022 40F20003 		movw	r3, #:lower16:.LC1
  112 0026 C0F20003 		movt	r3, #:upper16:.LC1
  113 002a 07F17004 		add	r4, r7, #112
@@ -158,13 +150,12 @@
  116 0032 0FC4     		stmia	r4!, {r0, r1, r2, r3}
  117 0034 95E80F00 		ldmia	r5, {r0, r1, r2, r3}
  118 0038 84E80F00 		stmia	r4, {r0, r1, r2, r3}
-  32:../src/main.c **** 							  {1.0, 1.5} };
-  33:../src/main.c **** 
-  34:../src/main.c **** 
-  35:../src/main.c **** 	int points10[DATAPOINT][2];
-  36:../src/main.c **** 	int centroids10[CENTROID][2];
-  37:../src/main.c **** 	int class[DATAPOINT] = {0,0,0,0,0,0,0,0};
- 119              		.loc 1 37 0
+  24:../src/main.c **** 							  {1.0, 1.5} };
+  25:../src/main.c **** 
+  26:../src/main.c **** 	int points10[DATAPOINT][2];
+  27:../src/main.c **** 	int centroids10[CENTROID][2];
+  28:../src/main.c **** 	int class[DATAPOINT] = {0,0,0,0,0,0,0,0};
+ 119              		.loc 1 28 0
  120 003c 3B46     		mov	r3, r7
  121 003e 4FF00002 		mov	r2, #0
  122 0042 1A60     		str	r2, [r3, #0]
@@ -189,23 +180,23 @@
  141 0074 3B46     		mov	r3, r7
  142 0076 4FF00002 		mov	r2, #0
  143 007a DA61     		str	r2, [r3, #28]
-  38:../src/main.c **** 
-  39:../src/main.c **** 	// Multiply the coordinates by 10 so that the final answers have 1 decimal point
-  40:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
- 144              		.loc 1 40 0
+  29:../src/main.c **** 
+  30:../src/main.c **** 	// Multiply the coordinates by 10 so that the final answers have 1 decimal point
+  31:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
+ 144              		.loc 1 31 0
  145 007c 4FF00003 		mov	r3, #0
  146 0080 C7F81431 		str	r3, [r7, #276]
  147 0084 60E0     		b	.L2
  148              	.L5:
-  41:../src/main.c **** 	{
-  42:../src/main.c **** 		for (j=0; j<2; j++)
- 149              		.loc 1 42 0
+  32:../src/main.c **** 	{
+  33:../src/main.c **** 		for (j=0; j<2; j++)
+ 149              		.loc 1 33 0
  150 0086 4FF00003 		mov	r3, #0
  151 008a C7F81031 		str	r3, [r7, #272]
  152 008e 34E0     		b	.L3
  153              	.L4:
-  43:../src/main.c **** 			points10[i][j] = points[i][j]*10;
- 154              		.loc 1 43 0 discriminator 2
+  34:../src/main.c **** 			points10[i][j] = points[i][j]*10;
+ 154              		.loc 1 34 0 discriminator 2
  155 0090 D7F81431 		ldr	r3, [r7, #276]
  156 0094 4FEA4302 		lsl	r2, r3, #1
  157 0098 D7F81031 		ldr	r3, [r7, #272]
@@ -235,19 +226,19 @@
  181 00e4 07F58C71 		add	r1, r7, #280
  182 00e8 CB18     		adds	r3, r1, r3
  183 00ea 43F8E82C 		str	r2, [r3, #-232]
-  42:../src/main.c **** 		for (j=0; j<2; j++)
- 184              		.loc 1 42 0 discriminator 2
+  33:../src/main.c **** 		for (j=0; j<2; j++)
+ 184              		.loc 1 33 0 discriminator 2
  185 00ee D7F81031 		ldr	r3, [r7, #272]
  186 00f2 03F10103 		add	r3, r3, #1
  187 00f6 C7F81031 		str	r3, [r7, #272]
  188              	.L3:
-  42:../src/main.c **** 		for (j=0; j<2; j++)
- 189              		.loc 1 42 0 is_stmt 0 discriminator 1
+  33:../src/main.c **** 		for (j=0; j<2; j++)
+ 189              		.loc 1 33 0 is_stmt 0 discriminator 1
  190 00fa D7F81031 		ldr	r3, [r7, #272]
  191 00fe 012B     		cmp	r3, #1
  192 0100 C6DD     		ble	.L4
-  44:../src/main.c **** 		printf("point %d: (x:%d, y:%d) \n", i, points10[i][0],points10[i][1]);
- 193              		.loc 1 44 0 is_stmt 1
+  35:../src/main.c **** 		printf("point %d: (x:%d, y:%d) \n", i, points10[i][0],points10[i][1]);
+ 193              		.loc 1 35 0 is_stmt 1
  194 0102 40F20003 		movw	r3, #:lower16:.LC2
  195 0106 C0F20003 		movt	r3, #:upper16:.LC2
  196 010a D7F81421 		ldr	r2, [r7, #276]
@@ -265,33 +256,33 @@
  208 0134 2A46     		mov	r2, r5
  209 0136 2346     		mov	r3, r4
  210 0138 FFF7FEFF 		bl	printf
-  40:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
- 211              		.loc 1 40 0
+  31:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
+ 211              		.loc 1 31 0
  212 013c D7F81431 		ldr	r3, [r7, #276]
  213 0140 03F10103 		add	r3, r3, #1
  214 0144 C7F81431 		str	r3, [r7, #276]
  215              	.L2:
-  40:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
- 216              		.loc 1 40 0 is_stmt 0 discriminator 1
+  31:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
+ 216              		.loc 1 31 0 is_stmt 0 discriminator 1
  217 0148 D7F81431 		ldr	r3, [r7, #276]
  218 014c 072B     		cmp	r3, #7
  219 014e 9ADD     		ble	.L5
-  45:../src/main.c **** 	}
-  46:../src/main.c **** 
-  47:../src/main.c **** 	for (i=0; i<CENTROID; i++)
- 220              		.loc 1 47 0 is_stmt 1
+  36:../src/main.c **** 	}
+  37:../src/main.c **** 
+  38:../src/main.c **** 	for (i=0; i<CENTROID; i++)
+ 220              		.loc 1 38 0 is_stmt 1
  221 0150 4FF00003 		mov	r3, #0
  222 0154 C7F81431 		str	r3, [r7, #276]
  223 0158 43E0     		b	.L6
  224              	.L9:
-  48:../src/main.c **** 		for (j=0; j<2; j++)
- 225              		.loc 1 48 0
+  39:../src/main.c **** 		for (j=0; j<2; j++)
+ 225              		.loc 1 39 0
  226 015a 4FF00003 		mov	r3, #0
  227 015e C7F81031 		str	r3, [r7, #272]
  228 0162 34E0     		b	.L7
  229              	.L8:
-  49:../src/main.c **** 			centroids10[i][j] = centroids[i][j]*10;
- 230              		.loc 1 49 0 discriminator 2
+  40:../src/main.c **** 			centroids10[i][j] = centroids[i][j]*10;
+ 230              		.loc 1 40 0 discriminator 2
  231 0164 D7F81431 		ldr	r3, [r7, #276]
  232 0168 4FEA4302 		lsl	r2, r3, #1
  233 016c D7F81031 		ldr	r3, [r7, #272]
@@ -321,32 +312,32 @@
  257 01b8 07F58C71 		add	r1, r7, #280
  258 01bc CB18     		adds	r3, r1, r3
  259 01be 43F8F82C 		str	r2, [r3, #-248]
-  48:../src/main.c **** 		for (j=0; j<2; j++)
- 260              		.loc 1 48 0 discriminator 2
+  39:../src/main.c **** 		for (j=0; j<2; j++)
+ 260              		.loc 1 39 0 discriminator 2
  261 01c2 D7F81031 		ldr	r3, [r7, #272]
  262 01c6 03F10103 		add	r3, r3, #1
  263 01ca C7F81031 		str	r3, [r7, #272]
  264              	.L7:
-  48:../src/main.c **** 		for (j=0; j<2; j++)
- 265              		.loc 1 48 0 is_stmt 0 discriminator 1
+  39:../src/main.c **** 		for (j=0; j<2; j++)
+ 265              		.loc 1 39 0 is_stmt 0 discriminator 1
  266 01ce D7F81031 		ldr	r3, [r7, #272]
  267 01d2 012B     		cmp	r3, #1
  268 01d4 C6DD     		ble	.L8
-  47:../src/main.c **** 	for (i=0; i<CENTROID; i++)
- 269              		.loc 1 47 0 is_stmt 1
+  38:../src/main.c **** 	for (i=0; i<CENTROID; i++)
+ 269              		.loc 1 38 0 is_stmt 1
  270 01d6 D7F81431 		ldr	r3, [r7, #276]
  271 01da 03F10103 		add	r3, r3, #1
  272 01de C7F81431 		str	r3, [r7, #276]
  273              	.L6:
-  47:../src/main.c **** 	for (i=0; i<CENTROID; i++)
- 274              		.loc 1 47 0 is_stmt 0 discriminator 1
+  38:../src/main.c **** 	for (i=0; i<CENTROID; i++)
+ 274              		.loc 1 38 0 is_stmt 0 discriminator 1
  275 01e2 D7F81431 		ldr	r3, [r7, #276]
  276 01e6 012B     		cmp	r3, #1
  277 01e8 B7DD     		ble	.L9
-  50:../src/main.c **** 
-  51:../src/main.c **** 	// Call assembly language function to perform classification
-  52:../src/main.c **** 	printf( "C  : class %d contains more datapoint \n", classification_cCode(points10,centroids10,clas
- 278              		.loc 1 52 0 is_stmt 1
+  41:../src/main.c **** 
+  42:../src/main.c **** 	// Call assembly language function to perform classification
+  43:../src/main.c **** 	printf( "C  : class %d contains more datapoint \n", classification_cCode(points10,centroids10,clas
+ 278              		.loc 1 43 0 is_stmt 1
  279 01ea 40F20004 		movw	r4, #:lower16:.LC3
  280 01ee C0F20004 		movt	r4, #:upper16:.LC3
  281 01f2 07F13001 		add	r1, r7, #48
@@ -360,8 +351,8 @@
  289 0208 2046     		mov	r0, r4
  290 020a 1946     		mov	r1, r3
  291 020c FFF7FEFF 		bl	printf
-  53:../src/main.c **** 	printf( "asm: class %d contains more datapoint \n", classification(points10,centroids10,class)) ;
- 292              		.loc 1 53 0
+  44:../src/main.c **** 	printf( "asm: class %d contains more datapoint \n", classification(points10,centroids10,class, DAT
+ 292              		.loc 1 44 0
  293 0210 40F20004 		movw	r4, #:lower16:.LC4
  294 0214 C0F20004 		movt	r4, #:upper16:.LC4
  295 0218 07F13001 		add	r1, r7, #48
@@ -370,321 +361,322 @@
  298 0222 0846     		mov	r0, r1
  299 0224 1146     		mov	r1, r2
  300 0226 1A46     		mov	r2, r3
- 301 0228 FFF7FEFF 		bl	classification
- 302 022c 0346     		mov	r3, r0
- 303 022e 2046     		mov	r0, r4
- 304 0230 1946     		mov	r1, r3
- 305 0232 FFF7FEFF 		bl	printf
- 306              	.L10:
+ 301 0228 4FF00803 		mov	r3, #8
+ 302 022c FFF7FEFF 		bl	classification
+ 303 0230 0346     		mov	r3, r0
+ 304 0232 2046     		mov	r0, r4
+ 305 0234 1946     		mov	r1, r3
+ 306 0236 FFF7FEFF 		bl	printf
+ 307              	.L10:
+  45:../src/main.c **** 
+  46:../src/main.c **** 	while (1); //halt
+ 308              		.loc 1 46 0 discriminator 1
+ 309 023a FEE7     		b	.L10
+ 310              		.cfi_endproc
+ 311              	.LFE0:
+ 313              		.section	.rodata
+ 314              		.align	2
+ 315              	.LC5:
+ 316 0110 706F696E 		.ascii	"point %d = centroid 1-->%d centroid 2 -->%d , class"
+ 316      74202564 
+ 316      203D2063 
+ 316      656E7472 
+ 316      6F696420 
+ 317 0143 203D2025 		.ascii	" = %d \012\000"
+ 317      64200A00 
+ 318 014b 00000000 		.section	.text.classification_cCode,"ax",%progbits
+ 318      00
+ 319              		.align	2
+ 320              		.global	classification_cCode
+ 321              		.thumb
+ 322              		.thumb_func
+ 324              	classification_cCode:
+ 325              	.LFB1:
+  47:../src/main.c **** }
+  48:../src/main.c **** int classification_cCode(int*points,int* centroids, int* class)
+  49:../src/main.c **** {
+ 326              		.loc 1 49 0
+ 327              		.cfi_startproc
+ 328              		@ args = 0, pretend = 0, frame = 96
+ 329              		@ frame_needed = 1, uses_anonymous_args = 0
+ 330 0000 B0B5     		push	{r4, r5, r7, lr}
+ 331              	.LCFI3:
+ 332              		.cfi_def_cfa_offset 16
+ 333              		.cfi_offset 14, -4
+ 334              		.cfi_offset 7, -8
+ 335              		.cfi_offset 5, -12
+ 336              		.cfi_offset 4, -16
+ 337 0002 9AB0     		sub	sp, sp, #104
+ 338              	.LCFI4:
+ 339              		.cfi_def_cfa_offset 120
+ 340 0004 02AF     		add	r7, sp, #8
+ 341              	.LCFI5:
+ 342              		.cfi_def_cfa 7, 112
+ 343 0006 F860     		str	r0, [r7, #12]
+ 344 0008 B960     		str	r1, [r7, #8]
+ 345 000a 7A60     		str	r2, [r7, #4]
+  50:../src/main.c **** 	int i,j;
+  51:../src/main.c **** 	int d[CENTROID][DATAPOINT]; // squared Euclidean distance
+  52:../src/main.c **** 	//int d1[DATAPOINT]; // squared Euclidean distance
+  53:../src/main.c **** 	int d0_counter=0,d1_counter=0;
+ 346              		.loc 1 53 0
+ 347 000c 4FF00003 		mov	r3, #0
+ 348 0010 BB65     		str	r3, [r7, #88]
+ 349 0012 4FF00003 		mov	r3, #0
+ 350 0016 7B65     		str	r3, [r7, #84]
   54:../src/main.c **** 
-  55:../src/main.c **** 	while (1); //halt
- 307              		.loc 1 55 0 discriminator 1
- 308 0236 FEE7     		b	.L10
- 309              		.cfi_endproc
- 310              	.LFE0:
- 312              		.section	.rodata
- 313              		.align	2
- 314              	.LC5:
- 315 0110 706F696E 		.ascii	"point %d = centroid 1-->%d centroid 2 -->%d , class"
- 315      74202564 
- 315      203D2063 
- 315      656E7472 
- 315      6F696420 
- 316 0143 203D2025 		.ascii	" = %d \012\000"
- 316      64200A00 
- 317 014b 00000000 		.section	.text.classification_cCode,"ax",%progbits
- 317      00
- 318              		.align	2
- 319              		.global	classification_cCode
- 320              		.thumb
- 321              		.thumb_func
- 323              	classification_cCode:
- 324              	.LFB1:
-  56:../src/main.c **** }
-  57:../src/main.c **** int classification_cCode(int*points,int* centroids, int* class)
-  58:../src/main.c **** {
- 325              		.loc 1 58 0
- 326              		.cfi_startproc
- 327              		@ args = 0, pretend = 0, frame = 96
- 328              		@ frame_needed = 1, uses_anonymous_args = 0
- 329 0000 B0B5     		push	{r4, r5, r7, lr}
- 330              	.LCFI3:
- 331              		.cfi_def_cfa_offset 16
- 332              		.cfi_offset 14, -4
- 333              		.cfi_offset 7, -8
- 334              		.cfi_offset 5, -12
- 335              		.cfi_offset 4, -16
- 336 0002 9AB0     		sub	sp, sp, #104
- 337              	.LCFI4:
- 338              		.cfi_def_cfa_offset 120
- 339 0004 02AF     		add	r7, sp, #8
- 340              	.LCFI5:
- 341              		.cfi_def_cfa 7, 112
- 342 0006 F860     		str	r0, [r7, #12]
- 343 0008 B960     		str	r1, [r7, #8]
- 344 000a 7A60     		str	r2, [r7, #4]
-  59:../src/main.c **** 	int i,j;
-  60:../src/main.c **** 	int d[CENTROID][DATAPOINT]; // squared Euclidean distance
-  61:../src/main.c **** 	//int d1[DATAPOINT]; // squared Euclidean distance
-  62:../src/main.c **** 	int d0_counter=0,d1_counter=0;
- 345              		.loc 1 62 0
- 346 000c 4FF00003 		mov	r3, #0
- 347 0010 BB65     		str	r3, [r7, #88]
- 348 0012 4FF00003 		mov	r3, #0
- 349 0016 7B65     		str	r3, [r7, #84]
-  63:../src/main.c **** 
-  64:../src/main.c **** 
-  65:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
- 350              		.loc 1 65 0
- 351 0018 4FF00003 		mov	r3, #0
- 352 001c FB65     		str	r3, [r7, #92]
- 353 001e A8E0     		b	.L12
- 354              	.L15:
-  66:../src/main.c **** 	{
-  67:../src/main.c **** 		//(*((centroids+i) + j))
-  68:../src/main.c **** 		d[0][i] = ((*((points+i*2) + 0))-(*((centroids+0*2) + 0))) * ((*((points+i*2) + 0))-(*((centroids
- 355              		.loc 1 68 0
- 356 0020 FB6D     		ldr	r3, [r7, #92]
- 357 0022 4FEAC303 		lsl	r3, r3, #3
- 358 0026 FA68     		ldr	r2, [r7, #12]
- 359 0028 D318     		adds	r3, r2, r3
- 360 002a 1A68     		ldr	r2, [r3, #0]
- 361 002c BB68     		ldr	r3, [r7, #8]
- 362 002e 1B68     		ldr	r3, [r3, #0]
- 363 0030 D31A     		subs	r3, r2, r3
- 364 0032 FA6D     		ldr	r2, [r7, #92]
- 365 0034 4FEAC202 		lsl	r2, r2, #3
- 366 0038 F968     		ldr	r1, [r7, #12]
- 367 003a 8A18     		adds	r2, r1, r2
- 368 003c 1168     		ldr	r1, [r2, #0]
- 369 003e BA68     		ldr	r2, [r7, #8]
- 370 0040 1268     		ldr	r2, [r2, #0]
- 371 0042 8A1A     		subs	r2, r1, r2
- 372 0044 02FB03F2 		mul	r2, r2, r3
- 373 0048 FB6D     		ldr	r3, [r7, #92]
- 374 004a 4FEAC303 		lsl	r3, r3, #3
- 375 004e 03F10403 		add	r3, r3, #4
- 376 0052 F968     		ldr	r1, [r7, #12]
- 377 0054 CB18     		adds	r3, r1, r3
- 378 0056 1968     		ldr	r1, [r3, #0]
- 379 0058 BB68     		ldr	r3, [r7, #8]
- 380 005a 03F10403 		add	r3, r3, #4
- 381 005e 1B68     		ldr	r3, [r3, #0]
- 382 0060 CB1A     		subs	r3, r1, r3
- 383 0062 F96D     		ldr	r1, [r7, #92]
- 384 0064 4FEAC101 		lsl	r1, r1, #3
- 385 0068 01F10401 		add	r1, r1, #4
- 386 006c F868     		ldr	r0, [r7, #12]
- 387 006e 4118     		adds	r1, r0, r1
- 388 0070 0868     		ldr	r0, [r1, #0]
- 389 0072 B968     		ldr	r1, [r7, #8]
- 390 0074 01F10401 		add	r1, r1, #4
- 391 0078 0968     		ldr	r1, [r1, #0]
- 392 007a 411A     		subs	r1, r0, r1
- 393 007c 01FB03F3 		mul	r3, r1, r3
- 394 0080 D218     		adds	r2, r2, r3
- 395 0082 FB6D     		ldr	r3, [r7, #92]
- 396 0084 4FEA8303 		lsl	r3, r3, #2
- 397 0088 07F16000 		add	r0, r7, #96
- 398 008c C318     		adds	r3, r0, r3
- 399 008e 43F84C2C 		str	r2, [r3, #-76]
-  69:../src/main.c **** 		d[1][i] = ((*((points+i*2) + 0))-(*((centroids+1*2) + 0))) * ((*((points+i*2) + 0))-(*((centroids
- 400              		.loc 1 69 0
- 401 0092 FB6D     		ldr	r3, [r7, #92]
- 402 0094 4FEAC303 		lsl	r3, r3, #3
- 403 0098 FA68     		ldr	r2, [r7, #12]
- 404 009a D318     		adds	r3, r2, r3
- 405 009c 1A68     		ldr	r2, [r3, #0]
- 406 009e BB68     		ldr	r3, [r7, #8]
- 407 00a0 03F10803 		add	r3, r3, #8
- 408 00a4 1B68     		ldr	r3, [r3, #0]
- 409 00a6 D31A     		subs	r3, r2, r3
- 410 00a8 FA6D     		ldr	r2, [r7, #92]
- 411 00aa 4FEAC202 		lsl	r2, r2, #3
- 412 00ae F968     		ldr	r1, [r7, #12]
- 413 00b0 8A18     		adds	r2, r1, r2
- 414 00b2 1168     		ldr	r1, [r2, #0]
- 415 00b4 BA68     		ldr	r2, [r7, #8]
- 416 00b6 02F10802 		add	r2, r2, #8
- 417 00ba 1268     		ldr	r2, [r2, #0]
- 418 00bc 8A1A     		subs	r2, r1, r2
- 419 00be 02FB03F2 		mul	r2, r2, r3
- 420 00c2 FB6D     		ldr	r3, [r7, #92]
- 421 00c4 4FEAC303 		lsl	r3, r3, #3
- 422 00c8 03F10403 		add	r3, r3, #4
- 423 00cc F968     		ldr	r1, [r7, #12]
- 424 00ce CB18     		adds	r3, r1, r3
- 425 00d0 1968     		ldr	r1, [r3, #0]
- 426 00d2 BB68     		ldr	r3, [r7, #8]
- 427 00d4 03F10C03 		add	r3, r3, #12
- 428 00d8 1B68     		ldr	r3, [r3, #0]
- 429 00da CB1A     		subs	r3, r1, r3
- 430 00dc F96D     		ldr	r1, [r7, #92]
- 431 00de 4FEAC101 		lsl	r1, r1, #3
- 432 00e2 01F10401 		add	r1, r1, #4
- 433 00e6 F868     		ldr	r0, [r7, #12]
- 434 00e8 4118     		adds	r1, r0, r1
- 435 00ea 0868     		ldr	r0, [r1, #0]
- 436 00ec B968     		ldr	r1, [r7, #8]
- 437 00ee 01F10C01 		add	r1, r1, #12
- 438 00f2 0968     		ldr	r1, [r1, #0]
- 439 00f4 411A     		subs	r1, r0, r1
- 440 00f6 01FB03F3 		mul	r3, r1, r3
- 441 00fa D218     		adds	r2, r2, r3
- 442 00fc FB6D     		ldr	r3, [r7, #92]
- 443 00fe 03F10803 		add	r3, r3, #8
- 444 0102 4FEA8303 		lsl	r3, r3, #2
- 445 0106 07F16001 		add	r1, r7, #96
- 446 010a CB18     		adds	r3, r1, r3
- 447 010c 43F84C2C 		str	r2, [r3, #-76]
-  70:../src/main.c **** 
-  71:../src/main.c **** 		if(d[0][i]<d[1][i])
- 448              		.loc 1 71 0
- 449 0110 FB6D     		ldr	r3, [r7, #92]
- 450 0112 4FEA8303 		lsl	r3, r3, #2
- 451 0116 07F16002 		add	r2, r7, #96
- 452 011a D318     		adds	r3, r2, r3
- 453 011c 53F84C2C 		ldr	r2, [r3, #-76]
- 454 0120 FB6D     		ldr	r3, [r7, #92]
- 455 0122 03F10803 		add	r3, r3, #8
- 456 0126 4FEA8303 		lsl	r3, r3, #2
- 457 012a 07F16000 		add	r0, r7, #96
- 458 012e C318     		adds	r3, r0, r3
- 459 0130 53F84C3C 		ldr	r3, [r3, #-76]
- 460 0134 9A42     		cmp	r2, r3
- 461 0136 0CDA     		bge	.L13
-  72:../src/main.c **** 		{
-  73:../src/main.c **** 			class[i] = 0;
- 462              		.loc 1 73 0
- 463 0138 FB6D     		ldr	r3, [r7, #92]
- 464 013a 4FEA8303 		lsl	r3, r3, #2
- 465 013e 7A68     		ldr	r2, [r7, #4]
- 466 0140 D318     		adds	r3, r2, r3
- 467 0142 4FF00002 		mov	r2, #0
- 468 0146 1A60     		str	r2, [r3, #0]
-  74:../src/main.c **** 			d0_counter++;
- 469              		.loc 1 74 0
- 470 0148 BB6D     		ldr	r3, [r7, #88]
- 471 014a 03F10103 		add	r3, r3, #1
- 472 014e BB65     		str	r3, [r7, #88]
- 473 0150 0BE0     		b	.L14
- 474              	.L13:
-  75:../src/main.c **** 		}
-  76:../src/main.c **** 		else
-  77:../src/main.c **** 		{
-  78:../src/main.c **** 			class[i] = 1;
- 475              		.loc 1 78 0
- 476 0152 FB6D     		ldr	r3, [r7, #92]
- 477 0154 4FEA8303 		lsl	r3, r3, #2
- 478 0158 7A68     		ldr	r2, [r7, #4]
- 479 015a D318     		adds	r3, r2, r3
- 480 015c 4FF00102 		mov	r2, #1
- 481 0160 1A60     		str	r2, [r3, #0]
-  79:../src/main.c **** 			d1_counter++;
- 482              		.loc 1 79 0
- 483 0162 7B6D     		ldr	r3, [r7, #84]
- 484 0164 03F10103 		add	r3, r3, #1
- 485 0168 7B65     		str	r3, [r7, #84]
- 486              	.L14:
-  65:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
- 487              		.loc 1 65 0
- 488 016a FB6D     		ldr	r3, [r7, #92]
- 489 016c 03F10103 		add	r3, r3, #1
- 490 0170 FB65     		str	r3, [r7, #92]
- 491              	.L12:
-  65:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
- 492              		.loc 1 65 0 is_stmt 0 discriminator 1
- 493 0172 FB6D     		ldr	r3, [r7, #92]
- 494 0174 072B     		cmp	r3, #7
- 495 0176 7FF753AF 		ble	.L15
-  80:../src/main.c **** 		}
-  81:../src/main.c **** 	}
-  82:../src/main.c **** 	// print all distances
-  83:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
- 496              		.loc 1 83 0 is_stmt 1
- 497 017a 4FF00003 		mov	r3, #0
- 498 017e FB65     		str	r3, [r7, #92]
- 499 0180 28E0     		b	.L16
- 500              	.L17:
-  84:../src/main.c **** 	{
-  85:../src/main.c **** 		printf( "point %d = centroid 1-->%d centroid 2 -->%d , class = %d \n",i+1, d[0][i],d[1][i],class[
- 501              		.loc 1 85 0 discriminator 2
- 502 0182 40F20003 		movw	r3, #:lower16:.LC5
- 503 0186 C0F20003 		movt	r3, #:upper16:.LC5
- 504 018a FA6D     		ldr	r2, [r7, #92]
- 505 018c 02F10101 		add	r1, r2, #1
- 506 0190 FA6D     		ldr	r2, [r7, #92]
- 507 0192 4FEA8202 		lsl	r2, r2, #2
- 508 0196 07F16000 		add	r0, r7, #96
- 509 019a 8218     		adds	r2, r0, r2
- 510 019c 52F84C5C 		ldr	r5, [r2, #-76]
- 511 01a0 FA6D     		ldr	r2, [r7, #92]
- 512 01a2 02F10802 		add	r2, r2, #8
- 513 01a6 4FEA8202 		lsl	r2, r2, #2
- 514 01aa 07F16000 		add	r0, r7, #96
- 515 01ae 8218     		adds	r2, r0, r2
- 516 01b0 52F84C4C 		ldr	r4, [r2, #-76]
- 517 01b4 FA6D     		ldr	r2, [r7, #92]
- 518 01b6 4FEA8202 		lsl	r2, r2, #2
- 519 01ba 7868     		ldr	r0, [r7, #4]
- 520 01bc 8218     		adds	r2, r0, r2
- 521 01be 1268     		ldr	r2, [r2, #0]
- 522 01c0 0092     		str	r2, [sp, #0]
- 523 01c2 1846     		mov	r0, r3
- 524 01c4 2A46     		mov	r2, r5
- 525 01c6 2346     		mov	r3, r4
- 526 01c8 FFF7FEFF 		bl	printf
-  83:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
- 527              		.loc 1 83 0 discriminator 2
- 528 01cc FB6D     		ldr	r3, [r7, #92]
- 529 01ce 03F10103 		add	r3, r3, #1
- 530 01d2 FB65     		str	r3, [r7, #92]
- 531              	.L16:
-  83:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
- 532              		.loc 1 83 0 is_stmt 0 discriminator 1
- 533 01d4 FB6D     		ldr	r3, [r7, #92]
- 534 01d6 072B     		cmp	r3, #7
- 535 01d8 D3DD     		ble	.L17
-  86:../src/main.c **** 	}
-  87:../src/main.c **** 	if(d1_counter>d0_counter)
- 536              		.loc 1 87 0 is_stmt 1
- 537 01da 7A6D     		ldr	r2, [r7, #84]
- 538 01dc BB6D     		ldr	r3, [r7, #88]
- 539 01de 9A42     		cmp	r2, r3
- 540 01e0 02DD     		ble	.L18
-  88:../src/main.c **** 		return 1;
- 541              		.loc 1 88 0
- 542 01e2 4FF00103 		mov	r3, #1
- 543 01e6 01E0     		b	.L19
- 544              	.L18:
-  89:../src/main.c **** 	else
-  90:../src/main.c **** 		return 0;
- 545              		.loc 1 90 0
- 546 01e8 4FF00003 		mov	r3, #0
- 547              	.L19:
-  91:../src/main.c **** }
- 548              		.loc 1 91 0
- 549 01ec 1846     		mov	r0, r3
- 550 01ee 07F16007 		add	r7, r7, #96
- 551 01f2 BD46     		mov	sp, r7
- 552 01f4 B0BD     		pop	{r4, r5, r7, pc}
- 553              		.cfi_endproc
- 554              	.LFE1:
- 556 01f6 00BF     		.text
- 557              	.Letext0:
+  55:../src/main.c **** 
+  56:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
+ 351              		.loc 1 56 0
+ 352 0018 4FF00003 		mov	r3, #0
+ 353 001c FB65     		str	r3, [r7, #92]
+ 354 001e A8E0     		b	.L12
+ 355              	.L15:
+  57:../src/main.c **** 	{
+  58:../src/main.c **** 		//(*((centroids+i) + j))
+  59:../src/main.c **** 		d[0][i] = ((*((points+i*2) + 0))-(*((centroids+0*2) + 0))) * ((*((points+i*2) + 0))-(*((centroids
+ 356              		.loc 1 59 0
+ 357 0020 FB6D     		ldr	r3, [r7, #92]
+ 358 0022 4FEAC303 		lsl	r3, r3, #3
+ 359 0026 FA68     		ldr	r2, [r7, #12]
+ 360 0028 D318     		adds	r3, r2, r3
+ 361 002a 1A68     		ldr	r2, [r3, #0]
+ 362 002c BB68     		ldr	r3, [r7, #8]
+ 363 002e 1B68     		ldr	r3, [r3, #0]
+ 364 0030 D31A     		subs	r3, r2, r3
+ 365 0032 FA6D     		ldr	r2, [r7, #92]
+ 366 0034 4FEAC202 		lsl	r2, r2, #3
+ 367 0038 F968     		ldr	r1, [r7, #12]
+ 368 003a 8A18     		adds	r2, r1, r2
+ 369 003c 1168     		ldr	r1, [r2, #0]
+ 370 003e BA68     		ldr	r2, [r7, #8]
+ 371 0040 1268     		ldr	r2, [r2, #0]
+ 372 0042 8A1A     		subs	r2, r1, r2
+ 373 0044 02FB03F2 		mul	r2, r2, r3
+ 374 0048 FB6D     		ldr	r3, [r7, #92]
+ 375 004a 4FEAC303 		lsl	r3, r3, #3
+ 376 004e 03F10403 		add	r3, r3, #4
+ 377 0052 F968     		ldr	r1, [r7, #12]
+ 378 0054 CB18     		adds	r3, r1, r3
+ 379 0056 1968     		ldr	r1, [r3, #0]
+ 380 0058 BB68     		ldr	r3, [r7, #8]
+ 381 005a 03F10403 		add	r3, r3, #4
+ 382 005e 1B68     		ldr	r3, [r3, #0]
+ 383 0060 CB1A     		subs	r3, r1, r3
+ 384 0062 F96D     		ldr	r1, [r7, #92]
+ 385 0064 4FEAC101 		lsl	r1, r1, #3
+ 386 0068 01F10401 		add	r1, r1, #4
+ 387 006c F868     		ldr	r0, [r7, #12]
+ 388 006e 4118     		adds	r1, r0, r1
+ 389 0070 0868     		ldr	r0, [r1, #0]
+ 390 0072 B968     		ldr	r1, [r7, #8]
+ 391 0074 01F10401 		add	r1, r1, #4
+ 392 0078 0968     		ldr	r1, [r1, #0]
+ 393 007a 411A     		subs	r1, r0, r1
+ 394 007c 01FB03F3 		mul	r3, r1, r3
+ 395 0080 D218     		adds	r2, r2, r3
+ 396 0082 FB6D     		ldr	r3, [r7, #92]
+ 397 0084 4FEA8303 		lsl	r3, r3, #2
+ 398 0088 07F16000 		add	r0, r7, #96
+ 399 008c C318     		adds	r3, r0, r3
+ 400 008e 43F84C2C 		str	r2, [r3, #-76]
+  60:../src/main.c **** 		d[1][i] = ((*((points+i*2) + 0))-(*((centroids+1*2) + 0))) * ((*((points+i*2) + 0))-(*((centroids
+ 401              		.loc 1 60 0
+ 402 0092 FB6D     		ldr	r3, [r7, #92]
+ 403 0094 4FEAC303 		lsl	r3, r3, #3
+ 404 0098 FA68     		ldr	r2, [r7, #12]
+ 405 009a D318     		adds	r3, r2, r3
+ 406 009c 1A68     		ldr	r2, [r3, #0]
+ 407 009e BB68     		ldr	r3, [r7, #8]
+ 408 00a0 03F10803 		add	r3, r3, #8
+ 409 00a4 1B68     		ldr	r3, [r3, #0]
+ 410 00a6 D31A     		subs	r3, r2, r3
+ 411 00a8 FA6D     		ldr	r2, [r7, #92]
+ 412 00aa 4FEAC202 		lsl	r2, r2, #3
+ 413 00ae F968     		ldr	r1, [r7, #12]
+ 414 00b0 8A18     		adds	r2, r1, r2
+ 415 00b2 1168     		ldr	r1, [r2, #0]
+ 416 00b4 BA68     		ldr	r2, [r7, #8]
+ 417 00b6 02F10802 		add	r2, r2, #8
+ 418 00ba 1268     		ldr	r2, [r2, #0]
+ 419 00bc 8A1A     		subs	r2, r1, r2
+ 420 00be 02FB03F2 		mul	r2, r2, r3
+ 421 00c2 FB6D     		ldr	r3, [r7, #92]
+ 422 00c4 4FEAC303 		lsl	r3, r3, #3
+ 423 00c8 03F10403 		add	r3, r3, #4
+ 424 00cc F968     		ldr	r1, [r7, #12]
+ 425 00ce CB18     		adds	r3, r1, r3
+ 426 00d0 1968     		ldr	r1, [r3, #0]
+ 427 00d2 BB68     		ldr	r3, [r7, #8]
+ 428 00d4 03F10C03 		add	r3, r3, #12
+ 429 00d8 1B68     		ldr	r3, [r3, #0]
+ 430 00da CB1A     		subs	r3, r1, r3
+ 431 00dc F96D     		ldr	r1, [r7, #92]
+ 432 00de 4FEAC101 		lsl	r1, r1, #3
+ 433 00e2 01F10401 		add	r1, r1, #4
+ 434 00e6 F868     		ldr	r0, [r7, #12]
+ 435 00e8 4118     		adds	r1, r0, r1
+ 436 00ea 0868     		ldr	r0, [r1, #0]
+ 437 00ec B968     		ldr	r1, [r7, #8]
+ 438 00ee 01F10C01 		add	r1, r1, #12
+ 439 00f2 0968     		ldr	r1, [r1, #0]
+ 440 00f4 411A     		subs	r1, r0, r1
+ 441 00f6 01FB03F3 		mul	r3, r1, r3
+ 442 00fa D218     		adds	r2, r2, r3
+ 443 00fc FB6D     		ldr	r3, [r7, #92]
+ 444 00fe 03F10803 		add	r3, r3, #8
+ 445 0102 4FEA8303 		lsl	r3, r3, #2
+ 446 0106 07F16001 		add	r1, r7, #96
+ 447 010a CB18     		adds	r3, r1, r3
+ 448 010c 43F84C2C 		str	r2, [r3, #-76]
+  61:../src/main.c **** 
+  62:../src/main.c **** 		if(d[0][i]<d[1][i])
+ 449              		.loc 1 62 0
+ 450 0110 FB6D     		ldr	r3, [r7, #92]
+ 451 0112 4FEA8303 		lsl	r3, r3, #2
+ 452 0116 07F16002 		add	r2, r7, #96
+ 453 011a D318     		adds	r3, r2, r3
+ 454 011c 53F84C2C 		ldr	r2, [r3, #-76]
+ 455 0120 FB6D     		ldr	r3, [r7, #92]
+ 456 0122 03F10803 		add	r3, r3, #8
+ 457 0126 4FEA8303 		lsl	r3, r3, #2
+ 458 012a 07F16000 		add	r0, r7, #96
+ 459 012e C318     		adds	r3, r0, r3
+ 460 0130 53F84C3C 		ldr	r3, [r3, #-76]
+ 461 0134 9A42     		cmp	r2, r3
+ 462 0136 0CDA     		bge	.L13
+  63:../src/main.c **** 		{
+  64:../src/main.c **** 			class[i] = 0;
+ 463              		.loc 1 64 0
+ 464 0138 FB6D     		ldr	r3, [r7, #92]
+ 465 013a 4FEA8303 		lsl	r3, r3, #2
+ 466 013e 7A68     		ldr	r2, [r7, #4]
+ 467 0140 D318     		adds	r3, r2, r3
+ 468 0142 4FF00002 		mov	r2, #0
+ 469 0146 1A60     		str	r2, [r3, #0]
+  65:../src/main.c **** 			d0_counter++;
+ 470              		.loc 1 65 0
+ 471 0148 BB6D     		ldr	r3, [r7, #88]
+ 472 014a 03F10103 		add	r3, r3, #1
+ 473 014e BB65     		str	r3, [r7, #88]
+ 474 0150 0BE0     		b	.L14
+ 475              	.L13:
+  66:../src/main.c **** 		}
+  67:../src/main.c **** 		else
+  68:../src/main.c **** 		{
+  69:../src/main.c **** 			class[i] = 1;
+ 476              		.loc 1 69 0
+ 477 0152 FB6D     		ldr	r3, [r7, #92]
+ 478 0154 4FEA8303 		lsl	r3, r3, #2
+ 479 0158 7A68     		ldr	r2, [r7, #4]
+ 480 015a D318     		adds	r3, r2, r3
+ 481 015c 4FF00102 		mov	r2, #1
+ 482 0160 1A60     		str	r2, [r3, #0]
+  70:../src/main.c **** 			d1_counter++;
+ 483              		.loc 1 70 0
+ 484 0162 7B6D     		ldr	r3, [r7, #84]
+ 485 0164 03F10103 		add	r3, r3, #1
+ 486 0168 7B65     		str	r3, [r7, #84]
+ 487              	.L14:
+  56:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
+ 488              		.loc 1 56 0
+ 489 016a FB6D     		ldr	r3, [r7, #92]
+ 490 016c 03F10103 		add	r3, r3, #1
+ 491 0170 FB65     		str	r3, [r7, #92]
+ 492              	.L12:
+  56:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
+ 493              		.loc 1 56 0 is_stmt 0 discriminator 1
+ 494 0172 FB6D     		ldr	r3, [r7, #92]
+ 495 0174 072B     		cmp	r3, #7
+ 496 0176 7FF753AF 		ble	.L15
+  71:../src/main.c **** 		}
+  72:../src/main.c **** 	}
+  73:../src/main.c **** 	// print all distances
+  74:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
+ 497              		.loc 1 74 0 is_stmt 1
+ 498 017a 4FF00003 		mov	r3, #0
+ 499 017e FB65     		str	r3, [r7, #92]
+ 500 0180 28E0     		b	.L16
+ 501              	.L17:
+  75:../src/main.c **** 	{
+  76:../src/main.c **** 		printf( "point %d = centroid 1-->%d centroid 2 -->%d , class = %d \n",i+1, d[0][i],d[1][i],class[
+ 502              		.loc 1 76 0 discriminator 2
+ 503 0182 40F20003 		movw	r3, #:lower16:.LC5
+ 504 0186 C0F20003 		movt	r3, #:upper16:.LC5
+ 505 018a FA6D     		ldr	r2, [r7, #92]
+ 506 018c 02F10101 		add	r1, r2, #1
+ 507 0190 FA6D     		ldr	r2, [r7, #92]
+ 508 0192 4FEA8202 		lsl	r2, r2, #2
+ 509 0196 07F16000 		add	r0, r7, #96
+ 510 019a 8218     		adds	r2, r0, r2
+ 511 019c 52F84C5C 		ldr	r5, [r2, #-76]
+ 512 01a0 FA6D     		ldr	r2, [r7, #92]
+ 513 01a2 02F10802 		add	r2, r2, #8
+ 514 01a6 4FEA8202 		lsl	r2, r2, #2
+ 515 01aa 07F16000 		add	r0, r7, #96
+ 516 01ae 8218     		adds	r2, r0, r2
+ 517 01b0 52F84C4C 		ldr	r4, [r2, #-76]
+ 518 01b4 FA6D     		ldr	r2, [r7, #92]
+ 519 01b6 4FEA8202 		lsl	r2, r2, #2
+ 520 01ba 7868     		ldr	r0, [r7, #4]
+ 521 01bc 8218     		adds	r2, r0, r2
+ 522 01be 1268     		ldr	r2, [r2, #0]
+ 523 01c0 0092     		str	r2, [sp, #0]
+ 524 01c2 1846     		mov	r0, r3
+ 525 01c4 2A46     		mov	r2, r5
+ 526 01c6 2346     		mov	r3, r4
+ 527 01c8 FFF7FEFF 		bl	printf
+  74:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
+ 528              		.loc 1 74 0 discriminator 2
+ 529 01cc FB6D     		ldr	r3, [r7, #92]
+ 530 01ce 03F10103 		add	r3, r3, #1
+ 531 01d2 FB65     		str	r3, [r7, #92]
+ 532              	.L16:
+  74:../src/main.c **** 	for (i=0; i<DATAPOINT; i++)
+ 533              		.loc 1 74 0 is_stmt 0 discriminator 1
+ 534 01d4 FB6D     		ldr	r3, [r7, #92]
+ 535 01d6 072B     		cmp	r3, #7
+ 536 01d8 D3DD     		ble	.L17
+  77:../src/main.c **** 	}
+  78:../src/main.c **** 	if(d1_counter>d0_counter)
+ 537              		.loc 1 78 0 is_stmt 1
+ 538 01da 7A6D     		ldr	r2, [r7, #84]
+ 539 01dc BB6D     		ldr	r3, [r7, #88]
+ 540 01de 9A42     		cmp	r2, r3
+ 541 01e0 02DD     		ble	.L18
+  79:../src/main.c **** 		return 1;
+ 542              		.loc 1 79 0
+ 543 01e2 4FF00103 		mov	r3, #1
+ 544 01e6 01E0     		b	.L19
+ 545              	.L18:
+  80:../src/main.c **** 	else
+  81:../src/main.c **** 		return 0;
+ 546              		.loc 1 81 0
+ 547 01e8 4FF00003 		mov	r3, #0
+ 548              	.L19:
+  82:../src/main.c **** }
+ 549              		.loc 1 82 0
+ 550 01ec 1846     		mov	r0, r3
+ 551 01ee 07F16007 		add	r7, r7, #96
+ 552 01f2 BD46     		mov	sp, r7
+ 553 01f4 B0BD     		pop	{r4, r5, r7, pc}
+ 554              		.cfi_endproc
+ 555              	.LFE1:
+ 557 01f6 00BF     		.text
+ 558              	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Student\AppData\Local\Temp\cc3jtUtg.s:21     .rodata:00000000 $d
-C:\Users\Student\AppData\Local\Temp\cc3jtUtg.s:22     .rodata:00000000 .LC2
-C:\Users\Student\AppData\Local\Temp\cc3jtUtg.s:25     .rodata:0000001c .LC3
-C:\Users\Student\AppData\Local\Temp\cc3jtUtg.s:28     .rodata:00000044 .LC4
-C:\Users\Student\AppData\Local\Temp\cc3jtUtg.s:31     .rodata:00000070 .LC0
-C:\Users\Student\AppData\Local\Temp\cc3jtUtg.s:65     .rodata:000000f0 .LC1
-C:\Users\Student\AppData\Local\Temp\cc3jtUtg.s:75     .text.main:00000000 $t
-C:\Users\Student\AppData\Local\Temp\cc3jtUtg.s:80     .text.main:00000000 main
-C:\Users\Student\AppData\Local\Temp\cc3jtUtg.s:323    .text.classification_cCode:00000000 classification_cCode
-C:\Users\Student\AppData\Local\Temp\cc3jtUtg.s:314    .rodata:00000110 .LC5
-C:\Users\Student\AppData\Local\Temp\cc3jtUtg.s:318    .text.classification_cCode:00000000 $t
+C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:21     .rodata:00000000 $d
+C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:22     .rodata:00000000 .LC2
+C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:25     .rodata:0000001c .LC3
+C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:28     .rodata:00000044 .LC4
+C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:31     .rodata:00000070 .LC0
+C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:65     .rodata:000000f0 .LC1
+C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:75     .text.main:00000000 $t
+C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:80     .text.main:00000000 main
+C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:324    .text.classification_cCode:00000000 classification_cCode
+C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:315    .rodata:00000110 .LC5
+C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:319    .text.classification_cCode:00000000 $t
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

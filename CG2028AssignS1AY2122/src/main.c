@@ -23,7 +23,6 @@ int main(void)
 	double centroids[CENTROID][2] ={ {0.0, 0.5},
 							  {1.0, 1.5} };
 
-
 	int points10[DATAPOINT][2];
 	int centroids10[CENTROID][2];
 	int class[DATAPOINT] = {0,0,0,0,0,0,0,0};
