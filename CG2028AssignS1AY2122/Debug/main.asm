@@ -42,47 +42,47 @@
   30 006c 00000000 		.align	3
   31              	.LC0:
   32 0070 00000000 		.word	0
-  33 0074 00000000 		.word	0
+  33 0074 00002040 		.word	1075838976
   34 0078 00000000 		.word	0
-  35 007c 00000000 		.word	0
+  35 007c 00000440 		.word	1074003968
   36 0080 00000000 		.word	0
-  37 0084 00000000 		.word	0
+  37 0084 00002440 		.word	1076101120
   38 0088 00000000 		.word	0
-  39 008c 0000F03F 		.word	1072693248
+  39 008c 00000040 		.word	1073741824
   40 0090 00000000 		.word	0
-  41 0094 0000F03F 		.word	1072693248
+  41 0094 00002240 		.word	1075970048
   42 0098 00000000 		.word	0
-  43 009c 0000F03F 		.word	1072693248
+  43 009c 00001440 		.word	1075052544
   44 00a0 00000000 		.word	0
-  45 00a4 0000F03F 		.word	1072693248
+  45 00a4 00001040 		.word	1074790400
   46 00a8 00000000 		.word	0
-  47 00ac 00000000 		.word	0
+  47 00ac 0000E03F 		.word	1071644672
   48 00b0 00000000 		.word	0
-  49 00b4 00000840 		.word	1074266112
+  49 00b4 00001040 		.word	1074790400
   50 00b8 00000000 		.word	0
-  51 00bc 00000000 		.word	0
+  51 00bc 00001040 		.word	1074790400
   52 00c0 00000000 		.word	0
   53 00c4 00000840 		.word	1074266112
   54 00c8 00000000 		.word	0
-  55 00cc 0000F03F 		.word	1072693248
+  55 00cc 00002240 		.word	1075970048
   56 00d0 00000000 		.word	0
-  57 00d4 00001040 		.word	1074790400
+  57 00d4 00001840 		.word	1075314688
   58 00d8 00000000 		.word	0
   59 00dc 00000000 		.word	0
   60 00e0 00000000 		.word	0
   61 00e4 00001040 		.word	1074790400
   62 00e8 00000000 		.word	0
-  63 00ec 0000F03F 		.word	1072693248
+  63 00ec 0000E03F 		.word	1071644672
   64              		.align	3
   65              	.LC1:
   66 00f0 00000000 		.word	0
-  67 00f4 00000000 		.word	0
+  67 00f4 00001040 		.word	1074790400
   68 00f8 00000000 		.word	0
   69 00fc 0000E03F 		.word	1071644672
   70 0100 00000000 		.word	0
-  71 0104 0000F03F 		.word	1072693248
+  71 0104 00002040 		.word	1075838976
   72 0108 00000000 		.word	0
-  73 010c 0000F83F 		.word	1073217536
+  73 010c 00000440 		.word	1074003968
   74              		.section	.text.main,"ax",%progbits
   75              		.align	2
   76              		.global	main
@@ -121,7 +121,7 @@
   99              		.cfi_def_cfa_register 7
   12:../src/main.c **** 	int i,j;
   13:../src/main.c **** 
-  14:../src/main.c **** 	double points[DATAPOINT][2] = { {0.0, 0.0},
+  14:../src/main.c **** 	double points[DATAPOINT][2] = {{8.0, 2.5},
  100              		.loc 1 14 0
  101 0006 40F20003 		movw	r3, #:lower16:.LC0
  102 000a C0F20003 		movt	r3, #:upper16:.LC0
@@ -132,16 +132,17 @@
  107 001a 1146     		mov	r1, r2
  108 001c 1A46     		mov	r2, r3
  109 001e FFF7FEFF 		bl	memcpy
-  15:../src/main.c **** 							{0.0, 1.0},
-  16:../src/main.c **** 							{1.0, 1.0},
-  17:../src/main.c **** 							{1.0, 0.0},
-  18:../src/main.c **** 							{3.0, 0.0},
-  19:../src/main.c **** 							{3.0, 1.0},
-  20:../src/main.c **** 							{4.0, 0.0},
-  21:../src/main.c **** 							{4.0, 1.0} };
+  15:../src/main.c **** 	                                {10.0, 2.0},
+  16:../src/main.c **** 	                                {9.0, 5.0},
+  17:../src/main.c **** 	                                {4.0, 0.5},
+  18:../src/main.c **** 	                                {4.0, 4.0},
+  19:../src/main.c **** 	                                {3.0, 9.0},
+  20:../src/main.c **** 	                                {6.0, 0.0},
+  21:../src/main.c **** 	                                {4.0, 0.5}};
   22:../src/main.c **** 
-  23:../src/main.c **** 	double centroids[CENTROID][2] ={ {0.0, 0.5},
- 110              		.loc 1 23 0
+  23:../src/main.c **** 
+  24:../src/main.c **** 	double centroids[CENTROID][2] ={ {4.0, 0.5},
+ 110              		.loc 1 24 0
  111 0022 40F20003 		movw	r3, #:lower16:.LC1
  112 0026 C0F20003 		movt	r3, #:upper16:.LC1
  113 002a 07F17004 		add	r4, r7, #112
@@ -150,8 +151,7 @@
  116 0032 0FC4     		stmia	r4!, {r0, r1, r2, r3}
  117 0034 95E80F00 		ldmia	r5, {r0, r1, r2, r3}
  118 0038 84E80F00 		stmia	r4, {r0, r1, r2, r3}
-  24:../src/main.c **** 							  {1.0, 1.5} };
-  25:../src/main.c **** 
+  25:../src/main.c **** 	                                  {8.0, 2.5}};
   26:../src/main.c **** 	int points10[DATAPOINT][2];
   27:../src/main.c **** 	int centroids10[CENTROID][2];
   28:../src/main.c **** 	int class[DATAPOINT] = {0,0,0,0,0,0,0,0};
@@ -666,17 +666,17 @@
  558              	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:21     .rodata:00000000 $d
-C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:22     .rodata:00000000 .LC2
-C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:25     .rodata:0000001c .LC3
-C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:28     .rodata:00000044 .LC4
-C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:31     .rodata:00000070 .LC0
-C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:65     .rodata:000000f0 .LC1
-C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:75     .text.main:00000000 $t
-C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:80     .text.main:00000000 main
-C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:324    .text.classification_cCode:00000000 classification_cCode
-C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:315    .rodata:00000110 .LC5
-C:\Users\chewy\AppData\Local\Temp\ccWlsgue.s:319    .text.classification_cCode:00000000 $t
+C:\Users\chewy\AppData\Local\Temp\cc5A81Xx.s:21     .rodata:00000000 $d
+C:\Users\chewy\AppData\Local\Temp\cc5A81Xx.s:22     .rodata:00000000 .LC2
+C:\Users\chewy\AppData\Local\Temp\cc5A81Xx.s:25     .rodata:0000001c .LC3
+C:\Users\chewy\AppData\Local\Temp\cc5A81Xx.s:28     .rodata:00000044 .LC4
+C:\Users\chewy\AppData\Local\Temp\cc5A81Xx.s:31     .rodata:00000070 .LC0
+C:\Users\chewy\AppData\Local\Temp\cc5A81Xx.s:65     .rodata:000000f0 .LC1
+C:\Users\chewy\AppData\Local\Temp\cc5A81Xx.s:75     .text.main:00000000 $t
+C:\Users\chewy\AppData\Local\Temp\cc5A81Xx.s:80     .text.main:00000000 main
+C:\Users\chewy\AppData\Local\Temp\cc5A81Xx.s:324    .text.classification_cCode:00000000 classification_cCode
+C:\Users\chewy\AppData\Local\Temp\cc5A81Xx.s:315    .rodata:00000110 .LC5
+C:\Users\chewy\AppData\Local\Temp\cc5A81Xx.s:319    .text.classification_cCode:00000000 $t
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

@@ -6,23 +6,23 @@
 
 
 int classification_cCode(int* arg1, int* arg2, int* arg3);
-extern int classification(int* arg1, int* arg2, int* arg3, int arg4);// reference C implementation
+extern int classification(int* arg1, int* arg2, int* arg3);// reference C implementation
 int main(void)
 {
 	int i,j;
 
-	double points[DATAPOINT][2] = { {0.0, 0.0},
-							{0.0, 1.0},
-							{1.0, 1.0},
-							{1.0, 0.0},
-							{3.0, 0.0},
-							{3.0, 1.0},
-							{4.0, 0.0},
-							{4.0, 1.0} };
+	double points[DATAPOINT][2] = {{8.0, 2.5},
+	                                {10.0, 2.0},
+	                                {9.0, 5.0},
+	                                {4.0, 0.5},
+	                                {4.0, 4.0},
+	                                {3.0, 9.0},
+	                                {6.0, 0.0},
+	                                {4.0, 0.5}};
 
-	double centroids[CENTROID][2] ={ {0.0, 0.5},
-							  {1.0, 1.5} };
 
+	double centroids[CENTROID][2] ={ {4.0, 0.5},
+	                                  {8.0, 2.5}};
 	int points10[DATAPOINT][2];
 	int centroids10[CENTROID][2];
 	int class[DATAPOINT] = {0,0,0,0,0,0,0,0};
@@ -41,7 +41,7 @@ int main(void)
 
 	// Call assembly language function to perform classification
 	printf( "C  : class %d contains more datapoint \n", classification_cCode(points10,centroids10,class)) ;
-	printf( "asm: class %d contains more datapoint \n", classification(points10,centroids10,class, DATAPOINT)) ;
+	printf( "asm: class %d contains more datapoint \n", classification(points10,centroids10,class)) ;
 
 	while (1); //halt
 }
