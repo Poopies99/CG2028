@@ -29,9 +29,9 @@ classification:
 @ parameter registers need not be saved.
 
 @ write asm function body here
-		MOV R8, #0 						@0xE0A08000
-		MOV R9, #0 						@0xE0A09000
-		MOV R3, #8						@0XE0A03008 DATAPOINT DEFINED AS 8
+		MOV R8, #0 						@0x01A08000
+		MOV R9, #0 						@0x01A09000
+		MOV R3, #8						@0X01A03008
 		L1:	LDR R4, [R0] 				@0x05904000
 			ADD R0, #4 					@0x02800004
 			LDR R5, [R1] 				@0x05915000
