@@ -29,51 +29,42 @@ classification:
 @ parameter registers need not be saved.
 
 @ write asm function body here
-		MOV R8, #0 						@0x01A08000
-		MOV R9, #0 						@0x01A09000
-		MOV R3, #8						@0X01A03008
-		L1:	LDR R4, [R0] 				@0x05904000
-			ADD R0, #4 					@0x02800004
-			LDR R5, [R1] 				@0x05915000
-			ADD R1, #4 					@0x02811004
+		MOV R8, #0 						@0x03A08000
+		MOV R9, #0 						@0x03A09000
+		MOV R3, #8						@0X03A03008
+		L1:	LDR R4, [R0], #4 			@0x05904004
+			LDR R5, [R1], #4 			@0x05915004
 			SUB R4, R5 					@0x00444005
 			MUL R6, R4, R4 				@0x00006414
-			LDR R4, [R0] 				@0x05904000
-			SUB R0, #4 					@0x02400004
-			LDR R5, [R1]				@0x05915000
-			ADD R1, #4 					@0x02811004
+
+			LDR R4, [R0], #-4 			@0x05104004
+			LDR R5, [R1], #4			@0x05915004
 			SUB R4, R5 					@0x00444005
 			MLA R6, R4, R4, R6 			@0x00266414
 
-			LDR R4, [R0] 				@0x05904000
-			ADD R0, #4 					@0x02800004
-			LDR R5, [R1] 				@0x05915000
-			ADD R1, #4 					@0x02811004
+			LDR R4, [R0], #4 			@0x05904004
+			LDR R5, [R1], #4 			@0x05915004
 			SUB R4, R5 					@0x00444005
 			MUL R7, R4, R4 				@0x00007414
-			LDR R4, [R0] 				@0x05904000
-			ADD R0, #4 					@0x02800004
-			LDR R5, [R1] 				@0x05915000
-			SUB R1, #12 				@0x0241100C
+
+			LDR R4, [R0], #4 			@0x05904004
+			LDR R5, [R1], #-12 			@0x0511500C
 			SUB R4, R5 					@0x00444005
 			MLA R7, R4, R4, R7 			@0x00277414
 
 			CMP R6, R7 					@0x01560007
-			BMI CLASS_0 				@0x48800008
-			ADD R9, #1 					@0x02899001
-			B SKIPCLASS_0 				@0xE8800004
-		CLASS_0: ADD R8, #1  			@0x02888001
-		SKIPCLASS_0: SUB R3, #1 		@0x02433001
-			CMP R3, #0 					@0x03530000
-			BEQ EXITL1 					@0x08800004
-			B L1 						@0xE8000084
-		EXITL1: CMP R8, R9 				@0x01580009
-			BMI RETURN_0 				@0x48800008
-			MOVW R0, #0
-			B RETURN 					@0xE8800004
-		RETURN_0: MOVW R0, #1
-		RETURN: POP {R1-R9,R14}
-		BX LR
+			ITE MI
+			ADDMI R8, #1  				@0x02888001
+			ADDPL R9, #1 				@0x02899001
+			SUBS R3, #1 				@0x02533001
+			BNE L1 						@0x1800005C
+
+			CMP R8, R9 					@0x01580009
+			ITE MI
+			MOVMI R0, #1				@0x03A00001
+			MOVPL R0, #0				@0x03A00000
+			POP {R1-R9,R14}
+			BX LR
 
 @label: .word value
 
