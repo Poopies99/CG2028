@@ -665,17 +665,17 @@
  557              	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\chewy\AppData\Local\Temp\ccgmXYyG.s:21     .rodata:00000000 $d
-C:\Users\chewy\AppData\Local\Temp\ccgmXYyG.s:22     .rodata:00000000 .LC2
-C:\Users\chewy\AppData\Local\Temp\ccgmXYyG.s:25     .rodata:0000001c .LC3
-C:\Users\chewy\AppData\Local\Temp\ccgmXYyG.s:28     .rodata:00000044 .LC4
-C:\Users\chewy\AppData\Local\Temp\ccgmXYyG.s:31     .rodata:00000070 .LC0
-C:\Users\chewy\AppData\Local\Temp\ccgmXYyG.s:65     .rodata:000000f0 .LC1
-C:\Users\chewy\AppData\Local\Temp\ccgmXYyG.s:75     .text.main:00000000 $t
-C:\Users\chewy\AppData\Local\Temp\ccgmXYyG.s:80     .text.main:00000000 main
-C:\Users\chewy\AppData\Local\Temp\ccgmXYyG.s:323    .text.classification_cCode:00000000 classification_cCode
-C:\Users\chewy\AppData\Local\Temp\ccgmXYyG.s:314    .rodata:00000110 .LC5
-C:\Users\chewy\AppData\Local\Temp\ccgmXYyG.s:318    .text.classification_cCode:00000000 $t
+C:\Users\chewy\AppData\Local\Temp\cc23vpjf.s:21     .rodata:00000000 $d
+C:\Users\chewy\AppData\Local\Temp\cc23vpjf.s:22     .rodata:00000000 .LC2
+C:\Users\chewy\AppData\Local\Temp\cc23vpjf.s:25     .rodata:0000001c .LC3
+C:\Users\chewy\AppData\Local\Temp\cc23vpjf.s:28     .rodata:00000044 .LC4
+C:\Users\chewy\AppData\Local\Temp\cc23vpjf.s:31     .rodata:00000070 .LC0
+C:\Users\chewy\AppData\Local\Temp\cc23vpjf.s:65     .rodata:000000f0 .LC1
+C:\Users\chewy\AppData\Local\Temp\cc23vpjf.s:75     .text.main:00000000 $t
+C:\Users\chewy\AppData\Local\Temp\cc23vpjf.s:80     .text.main:00000000 main
+C:\Users\chewy\AppData\Local\Temp\cc23vpjf.s:323    .text.classification_cCode:00000000 classification_cCode
+C:\Users\chewy\AppData\Local\Temp\cc23vpjf.s:314    .rodata:00000110 .LC5
+C:\Users\chewy\AppData\Local\Temp\cc23vpjf.s:318    .text.classification_cCode:00000000 $t
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

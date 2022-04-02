@@ -1,6 +1,6 @@
 Archive member included because of file (symbol)
 
-C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
                               ./src/cr_startup_lpc17.o (SystemInit)
 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr__main.o)
                               ./src/cr_startup_lpc17.o (__main)
@@ -55,7 +55,7 @@ c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/
 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_hugeval.o)
                               c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_ldexpl.o) (__huge_vall)
 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(division.o)
-                              C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o) (__aeabi_uldivmod)
+                              C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o) (__aeabi_uldivmod)
 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
                               ./src/main.o (__aeabi_dmul)
 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(memcpy.o)
@@ -105,11 +105,11 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/main.o
  .data          0x00000000        0x0 ./src/main.o
  .bss           0x00000000        0x0 ./src/main.o
- .text          0x00000000        0x0 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
- .data          0x00000000        0x4 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
- .bss           0x00000000        0x0 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+ .text          0x00000000        0x0 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+ .data          0x00000000        0x4 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+ .bss           0x00000000        0x0 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
  .text.SystemCoreClockUpdate
-                0x00000000      0x2d0 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+                0x00000000      0x2d0 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
  .text          0x00000000        0x0 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr__main.o)
  .data          0x00000000        0x0 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr__main.o)
  .bss           0x00000000        0x0 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr__main.o)
@@ -357,7 +357,7 @@ Linker script and memory map
 LOAD ./src/classification.o
 LOAD ./src/cr_startup_lpc17.o
 LOAD ./src/main.o
-LOAD C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a
+LOAD C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a
 START GROUP
 LOAD c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a
 LOAD c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a
@@ -468,7 +468,7 @@ END GROUP
                 0x00000454      0x1f8 ./src/main.o
                 0x00000454                classification_cCode
  .text.SystemInit
-                0x0000064c      0x22c C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+                0x0000064c      0x22c C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
                 0x0000064c                SystemInit
  .text.__main   0x00000878       0x14 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr__main.o)
                 0x00000878                __CR_SEMIHOST
@@ -719,7 +719,7 @@ OUTPUT(CG2028AssignS1AY2122.axf elf32-littlearm)
  .ARM.attributes
                 0x00000054       0x33 ./src/main.o
  .ARM.attributes
-                0x00000087       0x33 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+                0x00000087       0x33 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
  .ARM.attributes
                 0x000000ba       0x33 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr__main.o)
  .ARM.attributes
@@ -809,7 +809,7 @@ OUTPUT(CG2028AssignS1AY2122.axf elf32-littlearm)
  .comment       0x00000000       0x70 ./src/cr_startup_lpc17.o
                                  0x71 (size before relaxing)
  .comment       0x00000000       0x71 ./src/main.o
- .comment       0x00000000       0x71 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+ .comment       0x00000000       0x71 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
  .comment       0x00000070       0x70 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr__main.o)
                                  0x71 (size before relaxing)
  .comment       0x00000000       0x71 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(memcpy.o)
@@ -841,23 +841,23 @@ OUTPUT(CG2028AssignS1AY2122.axf elf32-littlearm)
  .comment       0x00000000       0x71 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr_sbrk.o)
  .comment       0x00000000       0x71 c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr_check_heap.o)
 
-.debug_line     0x00000000      0xc18
+.debug_line     0x00000000      0xbf9
  .debug_line    0x00000000       0x66 ./src/classification.o
- .debug_line    0x00000066      0x46c ./src/cr_startup_lpc17.o
- .debug_line    0x000004d2      0x329 ./src/main.o
- .debug_line    0x000007fb      0x41d C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+ .debug_line    0x00000066      0x471 ./src/cr_startup_lpc17.o
+ .debug_line    0x000004d7      0x329 ./src/main.o
+ .debug_line    0x00000800      0x3f9 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
 
 .debug_info     0x00000000      0x7ec
  .debug_info    0x00000000       0xa3 ./src/classification.o
  .debug_info    0x000000a3      0x210 ./src/cr_startup_lpc17.o
  .debug_info    0x000002b3      0x1e2 ./src/main.o
- .debug_info    0x00000495      0x357 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+ .debug_info    0x00000495      0x357 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
 
 .debug_abbrev   0x00000000      0x239
  .debug_abbrev  0x00000000       0x14 ./src/classification.o
  .debug_abbrev  0x00000014       0xb4 ./src/cr_startup_lpc17.o
  .debug_abbrev  0x000000c8       0xa3 ./src/main.o
- .debug_abbrev  0x0000016b       0xce C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+ .debug_abbrev  0x0000016b       0xce C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
 
 .debug_aranges  0x00000000       0xe0
  .debug_aranges
@@ -867,17 +867,17 @@ OUTPUT(CG2028AssignS1AY2122.axf elf32-littlearm)
  .debug_aranges
                 0x00000090       0x28 ./src/main.o
  .debug_aranges
-                0x000000b8       0x28 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+                0x000000b8       0x28 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
 
 .debug_loc      0x00000000      0x2bc
  .debug_loc     0x00000000      0x1f0 ./src/cr_startup_lpc17.o
  .debug_loc     0x000001f0       0x74 ./src/main.o
- .debug_loc     0x00000264       0x58 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+ .debug_loc     0x00000264       0x58 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
 
 .debug_ranges   0x00000000       0x90
  .debug_ranges  0x00000000       0x60 ./src/cr_startup_lpc17.o
  .debug_ranges  0x00000060       0x18 ./src/main.o
- .debug_ranges  0x00000078       0x18 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+ .debug_ranges  0x00000078       0x18 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
 
 .debug_macinfo  0x00000000     0xec8d
  .debug_macinfo
@@ -885,17 +885,17 @@ OUTPUT(CG2028AssignS1AY2122.axf elf32-littlearm)
  .debug_macinfo
                 0x00003d30     0x2b65 ./src/main.o
  .debug_macinfo
-                0x00006895     0x83f8 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+                0x00006895     0x83f8 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
 
-.debug_str      0x00000000      0x4b3
- .debug_str     0x00000000      0x1f6 ./src/cr_startup_lpc17.o
-                                0x22a (size before relaxing)
- .debug_str     0x000001f6       0xcd ./src/main.o
+.debug_str      0x00000000      0x41d
+ .debug_str     0x00000000      0x1fb ./src/cr_startup_lpc17.o
+                                0x22f (size before relaxing)
+ .debug_str     0x000001fb       0x6a ./src/main.o
                                 0x153 (size before relaxing)
- .debug_str     0x000002c3      0x1f0 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
-                                0x2b2 (size before relaxing)
+ .debug_str     0x00000265      0x1b8 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+                                0x27a (size before relaxing)
 
 .debug_frame    0x00000000      0x1f0
  .debug_frame   0x00000000      0x148 ./src/cr_startup_lpc17.o
  .debug_frame   0x00000148       0x60 ./src/main.o
- .debug_frame   0x000001a8       0x48 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\CG2028\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
+ .debug_frame   0x000001a8       0x48 C:\Users\chewy\OneDrive\Desktop\NUS\NUSY2S2\CG2028\CG2028project\Lib_CMSISv1p30_LPC17xx\Debug\libCMSISv1p30_LPC17xx.a(system_LPC17xx.o)
